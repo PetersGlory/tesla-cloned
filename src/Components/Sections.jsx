@@ -1,27 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
-const Sections = ({title,desc,bg, left, right, index}) => {
+const Sections = ({title,desc,bg, left, right}) => {
   return (
-    <Wrap key={index} bgImage={bg}>
-        <ItemText>
-            <h1>{title}</h1>
-            <p>{desc}</p>
-        </ItemText>
-        <Buttons>
-            <ButtonGroup>
-                <LeftButton>
-                    {left}
-                </LeftButton>
-                {right && 
-                <RightButton>
-                    {right}
-                </RightButton>
-                }
-            </ButtonGroup>
-            <DownArrow className="bi bi-chevron-down"></DownArrow>
-        </Buttons>
-
+    <Wrap bgImage={bg}>
+        <Fade bottom>
+            <ItemText>
+                <h1>{title}</h1>
+                <p>{desc}</p>
+            </ItemText>
+        </Fade>
+            <Buttons>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>
+                            {left}
+                        </LeftButton>
+                        {right && 
+                        <RightButton>
+                            {right}
+                        </RightButton>
+                        }
+                    </ButtonGroup>
+                </Fade>
+                <DownArrow className="bi bi-chevron-down"></DownArrow>
+            </Buttons>
+        
     </Wrap>
   )
 }

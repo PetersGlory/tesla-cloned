@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
+import Header from './Header'
 import Sections from './Sections'
 
 const MainBody = () => {
@@ -14,6 +15,8 @@ const MainBody = () => {
     ])
   return (
     <Container>
+        <Header />
+
         {pages && pages.map((page, index)=>(
             <Sections 
             title= {page.title}
@@ -21,7 +24,7 @@ const MainBody = () => {
             bg = {page.bg}
             left = {page.left}
             right = {page.right}
-            index = {index}
+            key = {index}
             />
         ))}
     </Container>
