@@ -1,29 +1,30 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     const [sidebarOption, setSidebarOption] = useState(false)
     
   return (
     <Container>
-        <a>
+        <Link to="/">
             <img src="/assets/images/logo.svg" alt="logo" />
-        </a>
+        </Link>
 
         <Menu>
             
-                <a href="#">Model S</a>
-                <a href="#">Model 3</a>
-                <a href="#">Model X</a> 
-                <a href="#">Model Y</a>
-                <a href="#">Solar Roof</a>
-                <a href="#">Solar Panels</a>
+                <Link to="/models">Model S</Link>
+                <Link to="/">Model 3</Link>
+                <Link to="/">Model X</Link> 
+                <Link to="/">Model Y</Link>
+                <Link to="/">Solar Roof</Link>
+                <Link to="/">Solar Panels</Link>
             
         </Menu>
 
         <RightMenu>
-            <a href="#">Shop</a>
-            <a href="#">Account</a>
+            <Link to="#">Shop</Link>
+            <Link to="#">Account</Link>
             <CustomMenu onClick={()=>setSidebarOption(true)}>
                 Menu
             </CustomMenu>
@@ -34,49 +35,49 @@ const Header = () => {
                 <CustomClose className="bi bi-x-circle" />
             </CloseWrapper>
             <li>
-                <a href="#">Existing Inventory</a>
+                <Link to="#">Existing Inventory</Link>
             </li>
             <li>
-                <a href="#">Used Inventory</a>
+                <Link to="#">Used Inventory</Link>
             </li>
             <li>
-                <a href="#">Trade-In</a>
+                <Link to="#">Trade-In</Link>
             </li>
             <li>
-                <a href="#">Test Drive</a>
+                <Link to="#">Test Drive</Link>
             </li>
             <li>
-                <a href="#">Insurance</a>
+                <Link to="#">Insurance</Link>
             </li>
             <li>
-                <a href="#">Cybertruck</a>
+                <Link to="#">Cybertruck</Link>
             </li>
             <li>
-                <a href="#">Roadster</a>
+                <Link to="#">Roadster</Link>
             </li>
             <li>
-                <a href="#">Semi</a>
+                <Link to="#">Semi</Link>
             </li>
             <li>
-                <a href="#">Charging</a>
+                <Link to="#">Charging</Link>
             </li>
             <li>
-                <a href="#">Powerwall</a>
+                <Link to="#">Powerwall</Link>
             </li>
             <li>
-                <a href="#">Commercial Energy</a>
+                <Link to="#">Commercial Energy</Link>
             </li>
             <li>
-                <a href="#">Utilites</a>
+                <Link to="#">Utilites</Link>
             </li>
             <li>
-                <a href="#">Find Us</a>
+                <Link to="#">Find Us</Link>
             </li>
             <li>
-                <a href="#">Support</a>
+                <Link to="#">Support</Link>
             </li>
             <li>
-                <a href="#">Investor Relations</a>
+                <Link to="#">Investor Relations</Link>
             </li>
         </SideNav>
     </Container>
@@ -87,7 +88,7 @@ export default Header
 
 const Container = styled.div`
     min-height: 60px;
-    position: fixed;
+    position: absolute;
     background: transparent;
     display: flex;
     align-items: center;
@@ -154,6 +155,7 @@ const CustomMenu = styled.p`
     font-weight: 500;
     color:#171a20 !important;
     transition: color .33s ease;
+    margin-top: 25px !important;
    
     a:hover{
         background-color: #737373ad;
@@ -171,11 +173,21 @@ const SideNav = styled.div`
     z-index:10000;
     list-style: none;
     padding:20px !important;
+    overflow-y: scroll;
     display:flex;
     flex-direction: column;
     transition: 0.7s ease-in-out;
     transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
-
+    ::-webkit-scrollbar {
+        width: 0.3em;
+      }
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(233, 171, 171, 0.89);
+        outline: 1px solid rgba(186, 186, 186, 0.775);
+      }
     li{
         padding: 15px 0;
         border-bottom: 1px solid rgba(0,0,0,0.2);
